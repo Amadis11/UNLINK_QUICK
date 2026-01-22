@@ -7,9 +7,43 @@ Aplikacja do odlinkowania WIP przez Mendix API
 import argparse
 import json
 import os
-from typing import List
+import logging
+from typing import List, Dict
+from datetime import datetime
 from api_client import MendixAPIClient, ExternalAPIClient
-from config import DEFAULT_ENVIRONMENT, get_current_environment, validate_config
+from config import DEFAULT_ENVIRONMENT, get_current_environment, validate_config, get_site_name
+
+
+def setup_logger(log_file: str = None) -> logging.Logger:
+    """Konfiguruje logger dla aplikacji"""
+    if log_file is None:
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        log_file = f'unlink_app_{timestamp}.log'
+    
+    # Konfiguracja loggera
+    logger = logging.getLogger('WIPUnlink')
+    logger.setLevel(logging.INFO)
+    
+    # Handler do pliku
+    file_handler = logging.FileHandler(log_file, encoding='utf-8')
+    file_handler.setLevel(logging.INFO)
+    
+    # Handler do konsoli
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    
+    # Format
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', 
+                                 datefmt='%Y-%m-%d %H:%M:%S')
+    file_handler.setFormatter(formatter)
+    console_handler.setFormatter(formatter)
+    
+    # Dodaj handlery jeśli jeszcze nie ma
+    if not logger.handlers:
+        logger.addHandler(file_handler)
+        logger.addHandler(console_handler)
+    
+    return logger
 
 
 def read_wip_ids_from_file(file_path: str) -> List[int]:
@@ -80,6 +114,185 @@ def check_genealogy(wip_ids: List[int], environment: str = 'STG'):
         print()
 
 
+def process_serial_numbers(serial_numbers: List[str], environment: str = 'STG',
+                          mendix_token: str = None, log_file: str = None, 
+                          logger: logging.Logger = None) -> List[Dict]:
+    """
+    Przetwarza listę numerów seryjnych i odlinkowanie dzieci
+    
+    Args:
+        serial_numbers: Lista numerów seryjnych
+        environment: Środowisko STG/PRD
+        mendix_token: Token Mendix (opcjonalny)
+        log_file: Ścieżka do pliku logu JSON (opcjonalny)
+        logger: Logger aplikacji
+        
+    Returns:
+        Lista wyników dla każdego numeru
+    """
+    if logger:
+        logger.info(f"Rozpoczęcie przetwarzania {len(serial_numbers)} numerów seryjnych w środowisku {environment}")
+    
+    ext_client = ExternalAPIClient(environment)
+    mendix_client = MendixAPIClient(environment)
+    
+    if mendix_token:
+        mendix_client.set_mendix_token(mendix_token)
+        if logger:
+            logger.info("Ustawiono MendixToken z parametru")
+    
+    # Autentykuj External API
+    if not ext_client.authenticate():
+        error_msg = "Nie udało się zaautentykować do External API"
+        print(f"❌ {error_msg}")
+        if logger:
+            logger.error(error_msg)
+        return []
+    
+    if logger:
+        logger.info("Autentykacja do External API zakończona sukcesem")
+    
+    results = []
+    total = len(serial_numbers)
+    
+    print(f"\n=== Przetwarzanie {total} numerów seryjnych w środowisku {environment} ===\n")
+    
+    for idx, serial_number in enumerate(serial_numbers, 1):
+        # Usuń BOM i whitespace
+        serial_number = serial_number.strip().lstrip('\ufeff')
+        
+        print(f"[{idx}/{total}] Przetwarzanie SN: {serial_number}")
+        if logger:
+            logger.info(f"[{idx}/{total}] Rozpoczęcie przetwarzania SN: {serial_number}")
+        
+        result = {
+            'serial_number': serial_number,
+            'timestamp': datetime.now().isoformat(),
+            'environment': environment,
+            'success': False,
+            'error': None,
+            'details': {}
+        }
+        
+        try:
+            # 1. Pobierz WIP ID
+            wip_data = ext_client.get_wip_id_by_serial_number(serial_number, get_site_name())
+            if not wip_data or not isinstance(wip_data, list) or len(wip_data) == 0:
+                result['error'] = 'WIP nie znaleziony dla podanego numeru seryjnego'
+                print(f"  ⚠ {result['error']}")
+                results.append(result)
+                continue
+            
+            parent_wip_id = wip_data[0].get('WipId')
+            if not parent_wip_id:
+                result['error'] = 'Brak WipId w odpowiedzi'
+                print(f"  ⚠ {result['error']}")
+                results.append(result)
+                continue
+            
+            result['details']['parent_wip_id'] = parent_wip_id
+            print(f"  ✓ Parent WIP ID: {parent_wip_id}")
+            
+            # 2. Pobierz genealogię
+            genealogy = ext_client.get_genealogy(parent_wip_id)
+            if not genealogy or 'WipGenealogy' not in genealogy:
+                result['error'] = 'Nie znaleziono genealogii'
+                print(f"  ⚠ {result['error']}")
+                results.append(result)
+                continue
+            
+            items = genealogy['WipGenealogy']
+            children = [item for item in items if item.get('Level', 0) > 0]
+            
+            if not children:
+                result['error'] = 'Brak dzieci do odlinkowania'
+                print(f"  ⚠ {result['error']}")
+                results.append(result)
+                continue
+            
+            result['details']['children_count'] = len(children)
+            result['details']['children'] = []
+            print(f"  ✓ Znaleziono {len(children)} dzieci")
+            
+            # 3. Odlinkuj każde dziecko
+            all_children_success = True
+            for child in children:
+                child_wip_id = child.get('WipId')
+                child_sn = child.get('SerialNumber', 'N/A')
+                
+                if not child_wip_id:
+                    continue
+                
+                print(f"    Odlinkowywanie dziecka {child_wip_id} ({child_sn})...")
+                
+                disassemble_result = mendix_client.disassemble_wip(
+                    parent_wip_id=parent_wip_id,
+                    child_wip_id=child_wip_id,
+                    auto_find_history=True
+                )
+                
+                child_result = {
+                    'child_wip_id': child_wip_id,
+                    'child_serial_number': child_sn,
+                    'success': disassemble_result.get('success', False),
+                    'error': disassemble_result.get('error')
+                }
+                
+                result['details']['children'].append(child_result)
+                
+                if disassemble_result.get('success'):
+                    print(f"      ✓ Sukces")
+                else:
+                    print(f"      ✗ Błąd: {disassemble_result.get('error', 'Unknown')}")
+                    all_children_success = False
+            
+            result['success'] = all_children_success
+            if result['success']:
+                print(f"  ✅ Przetworzono pomyślnie\n")
+                if logger:
+                    logger.info(f"SN {serial_number}: Sukces - odlinkowano {len(children)} dzieci")
+            else:
+                result['error'] = 'Niektóre dzieci nie zostały odlinkowane'
+                print(f"  ⚠ {result['error']}\n")
+                if logger:
+                    logger.warning(f"SN {serial_number}: {result['error']}")
+                
+        except Exception as e:
+            result['error'] = f'Nieoczekiwany błąd: {str(e)}'
+            print(f"  ❌ {result['error']}\n")
+            if logger:
+                logger.error(f"SN {serial_number}: {result['error']}")
+        
+        results.append(result)
+    
+    # Zapisz logi do pliku JSON
+    if log_file:
+        try:
+            with open(log_file, 'w', encoding='utf-8') as f:
+                json.dump(results, f, indent=2, ensure_ascii=False)
+            print(f"\n📝 Logi JSON zapisane do: {log_file}")
+            if logger:
+                logger.info(f"Logi JSON zapisane do pliku: {log_file}")
+        except Exception as e:
+            print(f"\n⚠ Błąd podczas zapisu logów JSON: {e}")
+            if logger:
+                logger.error(f"Błąd podczas zapisu logów JSON: {e}")
+    
+    # Podsumowanie
+    success_count = sum(1 for r in results if r['success'])
+    fail_count = len(results) - success_count
+    
+    print(f"\n=== Podsumowanie ===")
+    print(f"Przetworzono: {len(results)}")
+    print(f"Sukces: {success_count}")
+    print(f"Błędy: {fail_count}")
+    
+    if logger:
+        logger.info(f"Podsumowanie: Przetworzono={len(results)}, Sukces={success_count}, Błędy={fail_count}")
+    
+    return results
+
+
 def disassemble_wips(parent_child_pairs: List[tuple], environment: str = 'STG', 
                      mendix_token: str = None):
     """
@@ -125,6 +338,17 @@ def main():
     # Pobierz środowisko z .env
     current_env = get_current_environment()
     
+    # Setup logger
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    app_log_file = f'unlink_app_{timestamp}.log'
+    logger = setup_logger(app_log_file)
+    
+    logger.info("=" * 60)
+    logger.info("Uruchomienie WIP Unlink Application")
+    logger.info(f"Środowisko: {current_env}")
+    logger.info(f"Plik logu aplikacji: {app_log_file}")
+    logger.info("=" * 60)
+    
     parser = argparse.ArgumentParser(
         description='WIP Unlink Tool - Odlinkowanie WIPów przez Mendix API',
         epilog=f'Aktualne środowisko z .env: {current_env}'
@@ -139,8 +363,16 @@ def main():
         help='Serial Number - automatycznie znajdzie parent WIP i dzieci do odlinkowania'
     )
     parser.add_argument(
+        '-sf', '--serial-file',
+        help='Plik z listą numerów seryjnych (jeden na linię)'
+    )
+    parser.add_argument(
         '-f', '--file',
         help='Plik z parami parent:child WIP IDs (jeden na linię lub JSON)'
+    )
+    parser.add_argument(
+        '-lf', '--log-file',
+        help='Plik do zapisu logów w formacie JSON (domyślnie: unlink_log_TIMESTAMP.json)'
     )
     parser.add_argument(
         '-e', '--environment',
@@ -163,8 +395,67 @@ def main():
     # Użyj środowiska z argumentu lub z .env
     environment = args.environment if args.environment else current_env
     
+    logger.info(f"Wybrane środowisko: {environment}")
+    logger.info(f"Źródło środowiska: {'argument CLI' if args.environment else '.env'}")
+    
     print(f"🌍 Środowisko: {environment}")
-    print(f"📁 Źródło: {'.env' if not args.environment else 'argument CLI'}\n")
+    print(f"📁 Źródło: {'.env' if not args.environment else 'argument CLI'}")
+    print(f"📋 Log aplikacji: {app_log_file}\n")
+    
+    # Obsługa pliku z numerami seryjnymi
+    if args.serial_file:
+        logger.info(f"Tryb: przetwarzanie pliku z numerami seryjnymi: {args.serial_file}")
+        print(f"=== Wczytywanie numerów seryjnych z pliku: {args.serial_file} ===\n")
+        
+        try:
+            with open(args.serial_file, 'r', encoding='utf-8-sig') as f:  # utf-8-sig usuwa BOM
+                serial_numbers = []
+                for line_num, line in enumerate(f, 1):
+                    line = line.strip()
+                    if line:  # Pomiń puste linie
+                        serial_numbers.append(line)
+                    else:
+                        logger.debug(f"Pominięto pustą linię: {line_num}")
+                        print(f"  Pominięto pustą linię: {line_num}")
+            
+            logger.info(f"Wczytano {len(serial_numbers)} numerów seryjnych z pliku")
+            print(f"✓ Wczytano {len(serial_numbers)} numerów seryjnych\n")
+            
+            # Przygotuj nazwę pliku logu
+            if args.log_file:
+                log_file = args.log_file
+            else:
+                log_file = f'unlink_results_{timestamp}.json'
+            
+            logger.info(f"Wyniki JSON zostaną zapisane do: {log_file}")
+            
+            # Przetwórz wszystkie numery
+            if environment == 'PRD':
+                logger.info("Środowisko PRD - wykonanie automatyczne bez potwierdzenia")
+                print(f"🚀 Środowisko PRD - wykonuję automatycznie bez potwierdzenia\n")
+                process_serial_numbers(serial_numbers, environment, args.token, log_file, logger)
+            else:
+                response = input(f"Czy na pewno chcesz przetworzyć {len(serial_numbers)} numerów w środowisku {environment}? (tak/nie): ")
+                logger.info(f"Użytkownik odpowiedział: '{response}'")
+                if response.lower() in ['tak', 'yes', 'y', 't']:
+                    logger.info("Potwierdzono - rozpoczęcie przetwarzania")
+                    process_serial_numbers(serial_numbers, environment, args.token, log_file, logger)
+                else:
+                    logger.warning("Operacja anulowana przez użytkownika")
+                    print("Operacja anulowana")
+            logger.info("Zakończenie programu")
+            return
+            
+        except FileNotFoundError:
+            error_msg = f"Nie znaleziono pliku {args.serial_file}"
+            logger.error(error_msg)
+            print(f"❌ Błąd: {error_msg}")
+            return
+        except Exception as e:
+            error_msg = f"Błąd podczas wczytywania pliku: {e}"
+            logger.error(error_msg)
+            print(f"❌ {error_msg}")
+            return
     
     # Pobierz listę par parent:child WIP IDs
     parent_child_pairs = []
@@ -248,7 +539,7 @@ def main():
             print(f"Błąd podczas odczytu pliku: {e}")
             return
     else:
-        print("Błąd: Musisz podać Serial Number (-s), parę WIPów (-w parent:child) lub plik (-f)")
+        print("Błąd: Musisz podać Serial Number (-s), plik z SN (-sf), parę WIPów (-w parent:child) lub plik (-f)")
         parser.print_help()
         return
     

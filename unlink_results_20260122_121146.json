@@ -1,0 +1,26 @@
+[
+  {
+    "serial_number": "367499998260110020000578755002225",
+    "timestamp": "2026-01-22T12:11:50.291011",
+    "environment": "STG",
+    "success": false,
+    "error": "WIP nie znaleziony dla podanego numeru seryjnego",
+    "details": {}
+  },
+  {
+    "serial_number": "367499998260110020000598755002225",
+    "timestamp": "2026-01-22T12:11:50.567156",
+    "environment": "STG",
+    "success": false,
+    "error": "WIP nie znaleziony dla podanego numeru seryjnego",
+    "details": {}
+  },
+  {
+    "serial_number": "367499998260110020000638755002225",
+    "timestamp": "2026-01-22T12:11:50.662362",
+    "environment": "STG",
+    "success": false,
+    "error": "WIP nie znaleziony dla podanego numeru seryjnego",
+    "details": {}
+  }
+]
