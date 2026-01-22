@@ -8,8 +8,10 @@ import argparse
 import json
 import os
 import logging
+import threading
 from typing import List, Dict
 from datetime import datetime
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from api_client import MendixAPIClient, ExternalAPIClient
 from config import DEFAULT_ENVIRONMENT, get_current_environment, validate_config, get_site_name
 
@@ -17,8 +19,10 @@ from config import DEFAULT_ENVIRONMENT, get_current_environment, validate_config
 def setup_logger(log_file: str = None) -> logging.Logger:
     """Konfiguruje logger dla aplikacji"""
     if log_file is None:
+        # Utwórz folder logs jeśli nie istnieje
+        os.makedirs('logs', exist_ok=True)
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        log_file = f'unlink_app_{timestamp}.log'
+        log_file = f'logs/unlink_app_{timestamp}.log'
     
     # Konfiguracja loggera
     logger = logging.getLogger('WIPUnlink')
@@ -32,8 +36,8 @@ def setup_logger(log_file: str = None) -> logging.Logger:
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     
-    # Format
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', 
+    # Format - thread-safe
+    formatter = logging.Formatter('%(asctime)s - [%(threadName)s] - %(levelname)s - %(message)s', 
                                  datefmt='%Y-%m-%d %H:%M:%S')
     file_handler.setFormatter(formatter)
     console_handler.setFormatter(formatter)
@@ -44,6 +48,143 @@ def setup_logger(log_file: str = None) -> logging.Logger:
         logger.addHandler(console_handler)
     
     return logger
+
+
+def process_single_serial_number(serial_number: str, environment: str, 
+                                 ext_client: ExternalAPIClient,
+                                 mendix_client: MendixAPIClient,
+                                 logger: logging.Logger,
+                                 counter: Dict) -> Dict:
+    """
+    Przetwarza pojedynczy numer seryjny
+    Thread-safe funkcja do przetwarzania w wielowątkowości
+    
+    Args:
+        serial_number: Numer seryjny do przetworzenia
+        environment: Środowisko STG/PRD
+        ext_client: Klient External API
+        mendix_client: Klient Mendix API
+        logger: Logger aplikacji
+        counter: Słownik z licznikiem postępu (thread-safe z lockiem)
+        
+    Returns:
+        Dict z wynikiem przetwarzania
+    """
+    # Usuń BOM i whitespace
+    serial_number = serial_number.strip().lstrip('\ufeff')
+    
+    # Zwiększ licznik (thread-safe)
+    with counter['lock']:
+        counter['processed'] += 1
+        current = counter['processed']
+        total = counter['total']
+    
+    thread_name = threading.current_thread().name
+    logger.info(f"[{current}/{total}] [{thread_name}] Rozpoczęcie przetwarzania SN: {serial_number}")
+    print(f"[{current}/{total}] [{thread_name}] Przetwarzanie SN: {serial_number}")
+    
+    result = {
+        'serial_number': serial_number,
+        'timestamp': datetime.now().isoformat(),
+        'environment': environment,
+        'thread': thread_name,
+        'success': False,
+        'error': None,
+        'details': {}
+    }
+    
+    try:
+        # 1. Pobierz WIP ID
+        wip_data = ext_client.get_wip_id_by_serial_number(serial_number, get_site_name())
+        if not wip_data or not isinstance(wip_data, list) or len(wip_data) == 0:
+            result['error'] = 'WIP nie znaleziony dla podanego numeru seryjnego'
+            logger.warning(f"[{thread_name}] SN {serial_number}: {result['error']}")
+            print(f"  [{thread_name}] ⚠ {result['error']}")
+            return result
+        
+        parent_wip_id = wip_data[0].get('WipId')
+        if not parent_wip_id:
+            result['error'] = 'Brak WipId w odpowiedzi'
+            logger.warning(f"[{thread_name}] SN {serial_number}: {result['error']}")
+            print(f"  [{thread_name}] ⚠ {result['error']}")
+            return result
+        
+        result['details']['parent_wip_id'] = parent_wip_id
+        logger.info(f"[{thread_name}] SN {serial_number}: Parent WIP ID: {parent_wip_id}")
+        print(f"  [{thread_name}] ✓ Parent WIP ID: {parent_wip_id}")
+        
+        # 2. Pobierz genealogię
+        genealogy = ext_client.get_genealogy(parent_wip_id)
+        if not genealogy or 'WipGenealogy' not in genealogy:
+            result['error'] = 'Nie znaleziono genealogii'
+            logger.warning(f"[{thread_name}] SN {serial_number}: {result['error']}")
+            print(f"  [{thread_name}] ⚠ {result['error']}")
+            return result
+        
+        items = genealogy['WipGenealogy']
+        children = [item for item in items if item.get('Level', 0) > 0]
+        
+        if not children:
+            result['error'] = 'Brak dzieci do odlinkowania'
+            logger.warning(f"[{thread_name}] SN {serial_number}: {result['error']}")
+            print(f"  [{thread_name}] ⚠ {result['error']}")
+            return result
+        
+        result['details']['children_count'] = len(children)
+        result['details']['children'] = []
+        logger.info(f"[{thread_name}] SN {serial_number}: Znaleziono {len(children)} dzieci")
+        print(f"  [{thread_name}] ✓ Znaleziono {len(children)} dzieci")
+        
+        # 3. Odlinkuj każde dziecko
+        all_children_success = True
+        for child in children:
+            child_wip_id = child.get('WipId')
+            child_sn = child.get('SerialNumber', 'N/A')
+            
+            if not child_wip_id:
+                continue
+            
+            logger.info(f"[{thread_name}] SN {serial_number}: Odlinkowywanie dziecka {child_wip_id} ({child_sn})")
+            print(f"    [{thread_name}] Odlinkowywanie {child_wip_id} ({child_sn})...")
+            
+            disassemble_result = mendix_client.disassemble_wip(
+                parent_wip_id=parent_wip_id,
+                child_wip_id=child_wip_id,
+                auto_find_history=True
+            )
+            
+            child_result = {
+                'child_wip_id': child_wip_id,
+                'child_serial_number': child_sn,
+                'success': disassemble_result.get('success', False),
+                'error': disassemble_result.get('error')
+            }
+            
+            result['details']['children'].append(child_result)
+            
+            if disassemble_result.get('success'):
+                logger.info(f"[{thread_name}] SN {serial_number}: Dziecko {child_wip_id} odlinkowane pomyślnie")
+                print(f"      [{thread_name}] ✓ Sukces")
+            else:
+                logger.error(f"[{thread_name}] SN {serial_number}: Błąd odlinkowania dziecka {child_wip_id}: {disassemble_result.get('error')}")
+                print(f"      [{thread_name}] ✗ Błąd: {disassemble_result.get('error', 'Unknown')}")
+                all_children_success = False
+        
+        result['success'] = all_children_success
+        if result['success']:
+            logger.info(f"[{thread_name}] SN {serial_number}: Przetworzono pomyślnie")
+            print(f"  [{thread_name}] ✅ Przetworzono pomyślnie\n")
+        else:
+            result['error'] = 'Niektóre dzieci nie zostały odlinkowane'
+            logger.warning(f"[{thread_name}] SN {serial_number}: {result['error']}")
+            print(f"  [{thread_name}] ⚠ {result['error']}\n")
+            
+    except Exception as e:
+        result['error'] = f'Nieoczekiwany błąd: {str(e)}'
+        logger.error(f"[{thread_name}] SN {serial_number}: {result['error']}")
+        print(f"  [{thread_name}] ❌ {result['error']}\n")
+    
+    return result
 
 
 def read_wip_ids_from_file(file_path: str) -> List[int]:
@@ -116,9 +257,9 @@ def check_genealogy(wip_ids: List[int], environment: str = 'STG'):
 
 def process_serial_numbers(serial_numbers: List[str], environment: str = 'STG',
                           mendix_token: str = None, log_file: str = None, 
-                          logger: logging.Logger = None) -> List[Dict]:
+                          logger: logging.Logger = None, max_workers: int = 10) -> List[Dict]:
     """
-    Przetwarza listę numerów seryjnych i odlinkowanie dzieci
+    Przetwarza listę numerów seryjnych z wykorzystaniem wielowątkowości
     
     Args:
         serial_numbers: Lista numerów seryjnych
@@ -126,22 +267,19 @@ def process_serial_numbers(serial_numbers: List[str], environment: str = 'STG',
         mendix_token: Token Mendix (opcjonalny)
         log_file: Ścieżka do pliku logu JSON (opcjonalny)
         logger: Logger aplikacji
+        max_workers: Liczba workerów (wątków) - domyślnie 10
         
     Returns:
         Lista wyników dla każdego numeru
     """
     if logger:
         logger.info(f"Rozpoczęcie przetwarzania {len(serial_numbers)} numerów seryjnych w środowisku {environment}")
+        logger.info(f"Używam {max_workers} workerów")
     
+    # Przygotuj klientów API dla każdego wątku
     ext_client = ExternalAPIClient(environment)
-    mendix_client = MendixAPIClient(environment)
     
-    if mendix_token:
-        mendix_client.set_mendix_token(mendix_token)
-        if logger:
-            logger.info("Ustawiono MendixToken z parametru")
-    
-    # Autentykuj External API
+    # Autentykuj External API (wspólny token dla wszystkich wątków)
     if not ext_client.authenticate():
         error_msg = "Nie udało się zaautentykować do External API"
         print(f"❌ {error_msg}")
@@ -152,118 +290,61 @@ def process_serial_numbers(serial_numbers: List[str], environment: str = 'STG',
     if logger:
         logger.info("Autentykacja do External API zakończona sukcesem")
     
-    results = []
+    # Mendix client (wspólny dla wszystkich wątków)
+    mendix_client = MendixAPIClient(environment)
+    if mendix_token:
+        mendix_client.set_mendix_token(mendix_token)
+        if logger:
+            logger.info("Ustawiono MendixToken z parametru")
+    
     total = len(serial_numbers)
     
-    print(f"\n=== Przetwarzanie {total} numerów seryjnych w środowisku {environment} ===\n")
+    # Thread-safe counter
+    counter = {
+        'processed': 0,
+        'total': total,
+        'lock': threading.Lock()
+    }
     
-    for idx, serial_number in enumerate(serial_numbers, 1):
-        # Usuń BOM i whitespace
-        serial_number = serial_number.strip().lstrip('\ufeff')
-        
-        print(f"[{idx}/{total}] Przetwarzanie SN: {serial_number}")
-        if logger:
-            logger.info(f"[{idx}/{total}] Rozpoczęcie przetwarzania SN: {serial_number}")
-        
-        result = {
-            'serial_number': serial_number,
-            'timestamp': datetime.now().isoformat(),
-            'environment': environment,
-            'success': False,
-            'error': None,
-            'details': {}
+    results = []
+    
+    print(f"\n=== Przetwarzanie {total} numerów seryjnych w środowisku {environment} ===")
+    print(f"🔧 Używam {min(max_workers, total)} workerów\n")
+    
+    # Przetwarzanie wielowątkowe
+    with ThreadPoolExecutor(max_workers=max_workers, thread_name_prefix="Worker") as executor:
+        # Utwórz zadania dla każdego numeru
+        future_to_sn = {
+            executor.submit(
+                process_single_serial_number,
+                sn,
+                environment,
+                ext_client,
+                mendix_client,
+                logger,
+                counter
+            ): sn for sn in serial_numbers
         }
         
-        try:
-            # 1. Pobierz WIP ID
-            wip_data = ext_client.get_wip_id_by_serial_number(serial_number, get_site_name())
-            if not wip_data or not isinstance(wip_data, list) or len(wip_data) == 0:
-                result['error'] = 'WIP nie znaleziony dla podanego numeru seryjnego'
-                print(f"  ⚠ {result['error']}")
+        # Zbieraj wyniki w miarę ukończenia
+        for future in as_completed(future_to_sn):
+            sn = future_to_sn[future]
+            try:
+                result = future.result()
                 results.append(result)
-                continue
-            
-            parent_wip_id = wip_data[0].get('WipId')
-            if not parent_wip_id:
-                result['error'] = 'Brak WipId w odpowiedzi'
-                print(f"  ⚠ {result['error']}")
-                results.append(result)
-                continue
-            
-            result['details']['parent_wip_id'] = parent_wip_id
-            print(f"  ✓ Parent WIP ID: {parent_wip_id}")
-            
-            # 2. Pobierz genealogię
-            genealogy = ext_client.get_genealogy(parent_wip_id)
-            if not genealogy or 'WipGenealogy' not in genealogy:
-                result['error'] = 'Nie znaleziono genealogii'
-                print(f"  ⚠ {result['error']}")
-                results.append(result)
-                continue
-            
-            items = genealogy['WipGenealogy']
-            children = [item for item in items if item.get('Level', 0) > 0]
-            
-            if not children:
-                result['error'] = 'Brak dzieci do odlinkowania'
-                print(f"  ⚠ {result['error']}")
-                results.append(result)
-                continue
-            
-            result['details']['children_count'] = len(children)
-            result['details']['children'] = []
-            print(f"  ✓ Znaleziono {len(children)} dzieci")
-            
-            # 3. Odlinkuj każde dziecko
-            all_children_success = True
-            for child in children:
-                child_wip_id = child.get('WipId')
-                child_sn = child.get('SerialNumber', 'N/A')
-                
-                if not child_wip_id:
-                    continue
-                
-                print(f"    Odlinkowywanie dziecka {child_wip_id} ({child_sn})...")
-                
-                disassemble_result = mendix_client.disassemble_wip(
-                    parent_wip_id=parent_wip_id,
-                    child_wip_id=child_wip_id,
-                    auto_find_history=True
-                )
-                
-                child_result = {
-                    'child_wip_id': child_wip_id,
-                    'child_serial_number': child_sn,
-                    'success': disassemble_result.get('success', False),
-                    'error': disassemble_result.get('error')
+            except Exception as e:
+                error_result = {
+                    'serial_number': sn,
+                    'timestamp': datetime.now().isoformat(),
+                    'environment': environment,
+                    'thread': threading.current_thread().name,
+                    'success': False,
+                    'error': f'Wyjątek podczas przetwarzania: {str(e)}',
+                    'details': {}
                 }
-                
-                result['details']['children'].append(child_result)
-                
-                if disassemble_result.get('success'):
-                    print(f"      ✓ Sukces")
-                else:
-                    print(f"      ✗ Błąd: {disassemble_result.get('error', 'Unknown')}")
-                    all_children_success = False
-            
-            result['success'] = all_children_success
-            if result['success']:
-                print(f"  ✅ Przetworzono pomyślnie\n")
+                results.append(error_result)
                 if logger:
-                    logger.info(f"SN {serial_number}: Sukces - odlinkowano {len(children)} dzieci")
-            else:
-                result['error'] = 'Niektóre dzieci nie zostały odlinkowane'
-                print(f"  ⚠ {result['error']}\n")
-                if logger:
-                    logger.warning(f"SN {serial_number}: {result['error']}")
-                
-        except Exception as e:
-            result['error'] = f'Nieoczekiwany błąd: {str(e)}'
-            print(f"  ❌ {result['error']}\n")
-            if logger:
-                logger.error(f"SN {serial_number}: {result['error']}")
-        
-        results.append(result)
+                    logger.error(f"Wyjątek podczas przetwarzania SN {sn}: {e}")
     
     # Zapisz logi do pliku JSON
     if log_file:
@@ -425,7 +506,8 @@ def main():
             if args.log_file:
                 log_file = args.log_file
             else:
-                log_file = f'unlink_results_{timestamp}.json'
+                os.makedirs('logs', exist_ok=True)
+                log_file = f'logs/unlink_results_{timestamp}.json'
             
             logger.info(f"Wyniki JSON zostaną zapisane do: {log_file}")
             

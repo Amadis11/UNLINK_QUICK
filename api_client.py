@@ -275,6 +275,7 @@ class MendixAPIClient:
     """Klient dla Mendix API - do odlinkowania WIP"""
     
     def __init__(self, environment: str = 'STG'):
+        self.environment = environment
         self.env_config = ENVIRONMENTS[environment]['mendix_api']
         self.base_url = self.env_config['base_url']
         self.session = requests.Session()
@@ -311,8 +312,7 @@ class MendixAPIClient:
         """
         # KROK 1: Znajdź WipProcessStepHistoryId jeśli nie podano i auto_find włączone
         if wip_process_step_history_id is None and auto_find_history:
-            from config import DEFAULT_ENVIRONMENT
-            external_client = ExternalAPIClient(DEFAULT_ENVIRONMENT)
+            external_client = ExternalAPIClient(self.environment)
             if external_client.authenticate():
                 wip_process_step_history_id = external_client.find_assembly_operation(parent_wip_id)
                 if wip_process_step_history_id is None:
@@ -331,12 +331,12 @@ class MendixAPIClient:
         if wip_assemble_history_id is None:
             print(f"  Krok 1: Pobieranie wipAssembleHistoryId...")
             
-            url = f"{self.base_url}-api/api/assembleall/{parent_wip_id}/disassemble"
+            url = f"{self.base_url}/api/assembleall/{parent_wip_id}/disassemble"
             
-            # Pierwsze wywołanie z wipAssembleHistoryId = wipProcessStepHistoryId
+            # Pierwsze wywołanie z wipAssembleHistoryId = 1 (żeby przeszło i dostać właściwe ID)
             payload_first = {
                 "wipId": child_wip_id,
-                "wipAssembleHistoryId": wip_process_step_history_id,
+                "wipAssembleHistoryId": 1,
                 "wipProcessStepHistoryId": wip_process_step_history_id
             }
             
@@ -348,9 +348,6 @@ class MendixAPIClient:
             if self.mendix_token:
                 headers['MendixToken'] = self.mendix_token
             
-            if self.mendix_token:
-                headers['MendixToken'] = self.mendix_token
-            
             try:
                 response_first = self.session.post(url, json=payload_first, headers=headers)
                 # Może zwrócić błąd, ale w odpowiedzi będzie wipAssembleHistoryId
@@ -358,18 +355,35 @@ class MendixAPIClient:
                 if response_first.status_code == 200 and response_first.text:
                     data = response_first.json()
                     
-                    # Szukaj wipAssembleHistoryId w itemsAssembled
+                    # Szukaj wipAssembleHistoryId w itemsAssembled dla konkretnego child_wip_id
                     items_assembled = data.get('itemsAssembled', [])
                     if items_assembled and len(items_assembled) > 0:
-                        wip_assemble_history_id = items_assembled[0].get('wipAssembleHistoryId')
-                        if wip_assemble_history_id:
-                            print(f"  ✓ Znaleziono wipAssembleHistoryId: {wip_assemble_history_id}")
+                        # Szukaj elementu z odpowiednim childWipId
+                        found_item = None
+                        for item in items_assembled:
+                            if item.get('childWipId') == child_wip_id:
+                                found_item = item
+                                break
+                        
+                        if found_item:
+                            wip_assemble_history_id = found_item.get('wipAssembleHistoryId')
+                            if wip_assemble_history_id:
+                                print(f"  ✓ Znaleziono wipAssembleHistoryId: {wip_assemble_history_id} dla child WIP {child_wip_id}")
+                            else:
+                                return {
+                                    'success': False,
+                                    'parent_wip_id': parent_wip_id,
+                                    'child_wip_id': child_wip_id,
+                                    'error': 'Nie znaleziono wipAssembleHistoryId w znalezionym elemencie',
+                                    'status_code': response_first.status_code,
+                                    'response': data
+                                }
                         else:
                             return {
                                 'success': False,
                                 'parent_wip_id': parent_wip_id,
                                 'child_wip_id': child_wip_id,
-                                'error': 'Nie znaleziono wipAssembleHistoryId w itemsAssembled',
+                                'error': f'Nie znaleziono child_wip_id {child_wip_id} w itemsAssembled',
                                 'status_code': response_first.status_code,
                                 'response': data
                             }
@@ -404,7 +418,7 @@ class MendixAPIClient:
         # KROK 3: Drugie wywołanie - właściwe disassemble z pełnymi danymi
         print(f"  Krok 2: Disassemble z wipAssembleHistoryId={wip_assemble_history_id}, wipProcessStepHistoryId={wip_process_step_history_id}")
         
-        url = f"{self.base_url}-api/api/assembleall/{parent_wip_id}/disassemble"
+        url = f"{self.base_url}/api/assembleall/{parent_wip_id}/disassemble"
         
         payload = {
             "wipId": child_wip_id,
