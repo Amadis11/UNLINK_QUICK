@@ -1,0 +1,17 @@
+# Python
+*.pyc
+__pycache__/
+*.log
+
+# Environment & Secrets
+.env
+.venv/
+venv/
+*.secret
+credentials.json
+
+# Token cache
+.token_cache.json
+
+# Config with credentials
+# config.py

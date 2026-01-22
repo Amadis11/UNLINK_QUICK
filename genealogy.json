@@ -1,0 +1,1925 @@
+{
+    "WipGenealogy": [
+        {
+            "Level": 0,
+            "ItemId": 1,
+            "ParentItemId": 0,
+            "MaterialId": 29115,
+            "MaterialName": "H00000009",
+            "PinCount": 0,
+            "PhoenixMaterialType": "WIP",
+            "SerializedMaterialId": null,
+            "WipId": 2521879,
+            "SerialNumber": "{sn:ENOGEN22SB-JB-0001000,model:0A000T2N0031231}",
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": null,
+            "AssembledDateTime": "2021-09-03T12:47:15.1961096+02:00",
+            "AssembledLocation": "GIMA 2",
+            "ReturnCount": 0,
+            "DataCollections": [
+                {
+                    "DataCollectionName": "Check_B_LED_Blue",
+                    "DataCollectionValue": "12.03312000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Blue",
+                    "DataCollectionValue": "12.05449000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Blue",
+                    "DataCollectionValue": "12.03410000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Blue",
+                    "DataCollectionValue": "12.03532000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Blue",
+                    "DataCollectionValue": "12.03879000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Green",
+                    "DataCollectionValue": "12.03362000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Green",
+                    "DataCollectionValue": "12.05499000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Green",
+                    "DataCollectionValue": "12.03492000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Green",
+                    "DataCollectionValue": "12.03686000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Green",
+                    "DataCollectionValue": "12.04136000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Yellow",
+                    "DataCollectionValue": "2.23634100"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Yellow",
+                    "DataCollectionValue": "2.28538000"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Yellow",
+                    "DataCollectionValue": "2.19128200"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Yellow",
+                    "DataCollectionValue": "2.18366800"
+                },
+                {
+                    "DataCollectionName": "Check_B_LED_Yellow",
+                    "DataCollectionValue": "2.19927200"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Blue",
+                    "DataCollectionValue": "2.29330900"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Blue",
+                    "DataCollectionValue": "2.47361600"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Blue",
+                    "DataCollectionValue": "2.49972600"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Blue",
+                    "DataCollectionValue": "2.38119600"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Blue",
+                    "DataCollectionValue": "2.33145300"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Green",
+                    "DataCollectionValue": "12.03591000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Green",
+                    "DataCollectionValue": "12.04015000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Green",
+                    "DataCollectionValue": "12.03564000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Green",
+                    "DataCollectionValue": "12.05540000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Green",
+                    "DataCollectionValue": "12.03435000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Yellow",
+                    "DataCollectionValue": "11.97153000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Yellow",
+                    "DataCollectionValue": "12.04317000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Yellow",
+                    "DataCollectionValue": "12.03867000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Yellow",
+                    "DataCollectionValue": "12.05859000"
+                },
+                {
+                    "DataCollectionName": "Check_G_LED_Yellow",
+                    "DataCollectionValue": "11.97122000"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Blue",
+                    "DataCollectionValue": "2.18549500"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Blue",
+                    "DataCollectionValue": "2.27828800"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Blue",
+                    "DataCollectionValue": "2.28801000"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Blue",
+                    "DataCollectionValue": "2.28855400"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Blue",
+                    "DataCollectionValue": "2.23084500"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Green",
+                    "DataCollectionValue": "2.13399100"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Green",
+                    "DataCollectionValue": "2.21750700"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Green",
+                    "DataCollectionValue": "2.23476100"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Green",
+                    "DataCollectionValue": "2.23740600"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Green",
+                    "DataCollectionValue": "2.18260900"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Yellow",
+                    "DataCollectionValue": "11.97079000"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Yellow",
+                    "DataCollectionValue": "12.04393000"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Yellow",
+                    "DataCollectionValue": "12.03901000"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Yellow",
+                    "DataCollectionValue": "12.05790000"
+                },
+                {
+                    "DataCollectionName": "Check_R_LED_Yellow",
+                    "DataCollectionValue": "11.97022000"
+                },
+                {
+                    "DataCollectionName": "GroundBond_EarthProtection",
+                    "DataCollectionValue": "0.02100000"
+                },
+                {
+                    "DataCollectionName": "GroundBond_EarthProtection",
+                    "DataCollectionValue": "0.00000000"
+                },
+                {
+                    "DataCollectionName": "GroundBond_PE_Input_Output",
+                    "DataCollectionValue": "0.02800000"
+                },
+                {
+                    "DataCollectionName": "GroundBond_PE_Input_Output",
+                    "DataCollectionValue": "0.00900000"
+                },
+                {
+                    "DataCollectionName": "InsulationResistance_Test",
+                    "DataCollectionValue": "1.80700000"
+                },
+                {
+                    "DataCollectionName": "InsulationResistance_Test",
+                    "DataCollectionValue": "1.81700000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L1",
+                    "DataCollectionValue": "31.70000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L1",
+                    "DataCollectionValue": "33.40000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L1",
+                    "DataCollectionValue": "31.50000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L1",
+                    "DataCollectionValue": "32.40000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L1",
+                    "DataCollectionValue": "33.00000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L2",
+                    "DataCollectionValue": "32.40000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L2",
+                    "DataCollectionValue": "31.20000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L2",
+                    "DataCollectionValue": "30.80000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L2",
+                    "DataCollectionValue": "32.30000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L2",
+                    "DataCollectionValue": "32.00000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L3",
+                    "DataCollectionValue": "32.40000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L3",
+                    "DataCollectionValue": "31.00000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L3",
+                    "DataCollectionValue": "32.30000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L3",
+                    "DataCollectionValue": "31.30000000"
+                },
+                {
+                    "DataCollectionName": "DUT_CURRENT_IMPORT_L3",
+                    "DataCollectionValue": "32.00000000"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Result",
+                    "DataCollectionValue": "0.34500000"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Result",
+                    "DataCollectionValue": "0.35700000"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Result",
+                    "DataCollectionValue": "0.36300000"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Result",
+                    "DataCollectionValue": "0.35200000"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Result",
+                    "DataCollectionValue": "0.37000000"
+                },
+                {
+                    "DataCollectionName": "Energy_DUT_Error",
+                    "DataCollectionValue": "1.77324409"
+                },
+                {
+                    "DataCollectionName": "Energy_DUT_Error",
+                    "DataCollectionValue": "4.36603691"
+                },
+                {
+                    "DataCollectionName": "Energy_DUT_Error",
+                    "DataCollectionValue": "0.96386252"
+                },
+                {
+                    "DataCollectionName": "Energy_DUT_Error",
+                    "DataCollectionValue": "1.87637775"
+                },
+                {
+                    "DataCollectionName": "Energy_DUT_Error",
+                    "DataCollectionValue": "1.60803341"
+                },
+                {
+                    "DataCollectionName": "TS23_Read_Reference_Meter",
+                    "DataCollectionValue": "0.36994150"
+                },
+                {
+                    "DataCollectionName": "TS23_Read_Reference_Meter",
+                    "DataCollectionValue": "0.37360100"
+                },
+                {
+                    "DataCollectionName": "TS23_Read_Reference_Meter",
+                    "DataCollectionValue": "0.36075050"
+                },
+                {
+                    "DataCollectionName": "Configure_EOL_Test_DUT_Initialize",
+                    "DataCollectionValue": "True"
+                },
+                {
+                    "DataCollectionName": "Configure_EOL_Test_DUT_Initialize",
+                    "DataCollectionValue": "True"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_Selftest",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_Selftest",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_Selftest",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_Selftest",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_Selftest",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_Selftest",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_1",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_1",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_1",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_1",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_1",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_2",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_2",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_2",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_2",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_0_PP_Value_2",
+                    "DataCollectionValue": "0"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PP_Value_32",
+                    "DataCollectionValue": "32"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PP_Value_32",
+                    "DataCollectionValue": "32"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PP_Value_32",
+                    "DataCollectionValue": "32"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PP_Value_32",
+                    "DataCollectionValue": "32"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PP_Value_32",
+                    "DataCollectionValue": "32"
+                },
+                {
+                    "DataCollectionName": "Configure_EOL_Test_DUT_Finalize",
+                    "DataCollectionValue": "pass"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Post",
+                    "DataCollectionValue": "1.072"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Post",
+                    "DataCollectionValue": "0.862"
+                },
+                {
+                    "DataCollectionName": "Ambient Temperature",
+                    "DataCollectionValue": "25.94"
+                },
+                {
+                    "DataCollectionName": "Ambient Temperature",
+                    "DataCollectionValue": "22.88"
+                },
+                {
+                    "DataCollectionName": "Ambient Humidity",
+                    "DataCollectionValue": "42.53"
+                },
+                {
+                    "DataCollectionName": "Ambient Temperature",
+                    "DataCollectionValue": "23.74"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Post",
+                    "DataCollectionValue": "1.454"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_User_Key",
+                    "DataCollectionValue": "yLBOAZpcA4I0jcnbN8f3WdrQ"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_Installer_Key",
+                    "DataCollectionValue": "gVRXUv1I6rKEnyJYBBFjbvHx"
+                },
+                {
+                    "DataCollectionName": "Ambient Temperature",
+                    "DataCollectionValue": "22.14"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Init",
+                    "DataCollectionValue": "1.084"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Post",
+                    "DataCollectionValue": "0.51"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Init",
+                    "DataCollectionValue": "0.51"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Post",
+                    "DataCollectionValue": "0.727"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Init",
+                    "DataCollectionValue": "0.727"
+                },
+                {
+                    "DataCollectionName": "Ambient Humidity",
+                    "DataCollectionValue": "36.96"
+                },
+                {
+                    "DataCollectionName": "TS23_Read_Reference_Meter",
+                    "DataCollectionValue": "0.3583545"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_User_QR",
+                    "DataCollectionValue": "P2tleT1CRGNhdnFsZ3MxbkJaRjB3Um5SRE9wUWMmaWQ9RU5PR0VOMjJTQi1KQi0wMDAxMDAwJnZlbmRvcj1lTm92YXRlcw=="
+                },
+                {
+                    "DataCollectionName": "Bluetooth_Installer_QR",
+                    "DataCollectionValue": "P2tleT12dHY1ODZQazVwSFB6cjl1S0JMaFJ0d0smaWQ9RU5PR0VOMjJTQi1KQi0wMDAxMDAwJnZlbmRvcj1lTm92YXRlcw=="
+                },
+                {
+                    "DataCollectionName": "Ambient Humidity",
+                    "DataCollectionValue": "39.34"
+                },
+                {
+                    "DataCollectionName": "IP_Checker",
+                    "DataCollectionValue": "192.168.1.202"
+                },
+                {
+                    "DataCollectionName": "IP_Checker",
+                    "DataCollectionValue": "192.168.1.202"
+                },
+                {
+                    "DataCollectionName": "Ambient Humidity",
+                    "DataCollectionValue": "36.14"
+                },
+                {
+                    "DataCollectionName": "Ambient Temperature",
+                    "DataCollectionValue": "26.3"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_UNLOCKED_Status",
+                    "DataCollectionValue": "UNLOCKED"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_UNLOCKED_Status",
+                    "DataCollectionValue": "UNLOCKED"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_UNLOCKED_Status",
+                    "DataCollectionValue": "UNLOCKED"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_UNLOCKED_Status",
+                    "DataCollectionValue": "UNLOCKED"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_UNLOCKED_Status",
+                    "DataCollectionValue": "UNLOCKED"
+                },
+                {
+                    "DataCollectionName": "Ambient Humidity",
+                    "DataCollectionValue": "37.1"
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PLUGGED_OUT_Status",
+                    "DataCollectionValue": "\"PLUGGED_OUT\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PLUGGED_OUT_Status",
+                    "DataCollectionValue": "\"PLUGGED_OUT\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PLUGGED_OUT_Status",
+                    "DataCollectionValue": "\"PLUGGED_OUT\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PLUGGED_OUT_Status",
+                    "DataCollectionValue": "\"PLUGGED_OUT\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_PLUGGED_OUT_Status",
+                    "DataCollectionValue": "\"PLUGGED_OUT\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_LOCKED_Status",
+                    "DataCollectionValue": "\"LOCKED\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_LOCKED_Status",
+                    "DataCollectionValue": "\"LOCKED\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_LOCKED_Status",
+                    "DataCollectionValue": "\"LOCKED\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_LOCKED_Status",
+                    "DataCollectionValue": "\"LOCKED\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_LOCKED_Status",
+                    "DataCollectionValue": "\"LOCKED\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_IDLE_Status",
+                    "DataCollectionValue": "\"IDLE\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_IDLE_Status",
+                    "DataCollectionValue": "\"IDLE\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_IDLE_Status",
+                    "DataCollectionValue": "\"IDLE\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_IDLE_Status",
+                    "DataCollectionValue": "\"IDLE\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_IDLE_Status",
+                    "DataCollectionValue": "\"IDLE\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_CHARGING_Status",
+                    "DataCollectionValue": "\"CHARGING\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_CHARGING_Status",
+                    "DataCollectionValue": "\"CHARGING\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_CHARGING_Status",
+                    "DataCollectionValue": "\"CHARGING\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_CHARGING_Status",
+                    "DataCollectionValue": "\"CHARGING\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_CHARGING_Status",
+                    "DataCollectionValue": "\"CHARGING\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_C2_Status",
+                    "DataCollectionValue": "\"C2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_C2_Status",
+                    "DataCollectionValue": "\"C2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_C2_Status",
+                    "DataCollectionValue": "\"C2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_C2_Status",
+                    "DataCollectionValue": "\"C2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_C2_Status",
+                    "DataCollectionValue": "\"C2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_2",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_2",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_2",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_2",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_2",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_1",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_1",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_1",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_1",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_B2_Status_1",
+                    "DataCollectionValue": "\"B2\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_A1_Status",
+                    "DataCollectionValue": "\"A1\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_A1_Status",
+                    "DataCollectionValue": "\"A1\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_A1_Status",
+                    "DataCollectionValue": "\"A1\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_A1_Status",
+                    "DataCollectionValue": "\"A1\""
+                },
+                {
+                    "DataCollectionName": "DUT_Check_MODE_A1_Status",
+                    "DataCollectionValue": "\"A1\""
+                },
+                {
+                    "DataCollectionName": "Bluetooth_Installer_Key",
+                    "DataCollectionValue": "x06ays7t51h5GUFHViKTJqRF"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_Installer_Key",
+                    "DataCollectionValue": "x06ays7t51h5GUFHViKTJqRF"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_Installer_Key",
+                    "DataCollectionValue": "x06ays7t51h5GUFHViKTJqRF"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_User_Key",
+                    "DataCollectionValue": "EmBNzqu2Uz3NueU1kWE0AoeN"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_User_Key",
+                    "DataCollectionValue": "EmBNzqu2Uz3NueU1kWE0AoeN"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_User_Key",
+                    "DataCollectionValue": "EmBNzqu2Uz3NueU1kWE0AoeN"
+                },
+                {
+                    "DataCollectionName": "DUT_ADD_TOKEN_RF_ID_TO_WHITE_LIST",
+                    "DataCollectionValue": "Done"
+                },
+                {
+                    "DataCollectionName": "DUT_ADD_TOKEN_RF_ID_TO_WHITE_LIST",
+                    "DataCollectionValue": "Done"
+                },
+                {
+                    "DataCollectionName": "DUT_ADD_TOKEN_RF_ID_TO_WHITE_LIST",
+                    "DataCollectionValue": "Done"
+                },
+                {
+                    "DataCollectionName": "DUT_ADD_TOKEN_RF_ID_TO_WHITE_LIST",
+                    "DataCollectionValue": "Done"
+                },
+                {
+                    "DataCollectionName": "DUT_ADD_TOKEN_RF_ID_TO_WHITE_LIST_2",
+                    "DataCollectionValue": "Done"
+                },
+                {
+                    "DataCollectionName": "DUT_ADD_TOKEN_RF_ID_TO_WHITE_LIST_1",
+                    "DataCollectionValue": "Done"
+                },
+                {
+                    "DataCollectionName": "DUT_ADD_TOKEN_RF_ID_TO_WHITE_LIST_1",
+                    "DataCollectionValue": "Done"
+                },
+                {
+                    "DataCollectionName": "LCD_Test",
+                    "DataCollectionValue": "Disp_0"
+                },
+                {
+                    "DataCollectionName": "LCD_Test",
+                    "DataCollectionValue": "Disp_0"
+                },
+                {
+                    "DataCollectionName": "LCD_Test",
+                    "DataCollectionValue": "Disp_0"
+                },
+                {
+                    "DataCollectionName": "LCD_Test",
+                    "DataCollectionValue": "Disp_0"
+                },
+                {
+                    "DataCollectionName": "LCD_Test",
+                    "DataCollectionValue": "Disp_0"
+                },
+                {
+                    "DataCollectionName": "LCD_Test",
+                    "DataCollectionValue": "Disp_0"
+                },
+                {
+                    "DataCollectionName": "Power_Board_Serial",
+                    "DataCollectionValue": "0036004F3139510533343330"
+                },
+                {
+                    "DataCollectionName": "Power_Board_Serial",
+                    "DataCollectionValue": "0036004F3139510533343330"
+                },
+                {
+                    "DataCollectionName": "Power_Board_Serial",
+                    "DataCollectionValue": "0036004F3139510533343330"
+                },
+                {
+                    "DataCollectionName": "Power_Board_Serial",
+                    "DataCollectionValue": "0036004F3139510533343330"
+                },
+                {
+                    "DataCollectionName": "DUT_READ_TOKEN_RF_ID",
+                    "DataCollectionValue": "\"Qj\""
+                },
+                {
+                    "DataCollectionName": "DUT_READ_TOKEN_RF_ID",
+                    "DataCollectionValue": "\"Qj\""
+                },
+                {
+                    "DataCollectionName": "DUT_READ_TOKEN_RF_ID",
+                    "DataCollectionValue": "\"Qj\""
+                },
+                {
+                    "DataCollectionName": "DUT_READ_TOKEN_RF_ID",
+                    "DataCollectionValue": "\"Qj\""
+                },
+                {
+                    "DataCollectionName": "DUT_READ_TOKEN_RF_ID",
+                    "DataCollectionValue": "\"Qj\""
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Point_Serial_Test",
+                    "DataCollectionValue": "ENOGEN22SB-JB-0001000"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Point_Serial_Test",
+                    "DataCollectionValue": "ENOGEN22SB-JB-0001000"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Point_Serial_Test",
+                    "DataCollectionValue": "ENOGEN22SB-JB-0001000"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Point_Serial_Test",
+                    "DataCollectionValue": "ENOGEN22SB-JB-0001000"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Point_Serial_Test",
+                    "DataCollectionValue": "ENOGEN22SB-JB-0001000"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Point_Serial_Test",
+                    "DataCollectionValue": "ENOGEN22SB-JB-0001000"
+                },
+                {
+                    "DataCollectionName": "Powerboard_Firmware_Version",
+                    "DataCollectionValue": "\"query_not_supported\""
+                },
+                {
+                    "DataCollectionName": "Powerboard_Firmware_Version",
+                    "DataCollectionValue": "\"query_not_supported\""
+                },
+                {
+                    "DataCollectionName": "Powerboard_Firmware_Version",
+                    "DataCollectionValue": "\"query_not_supported\""
+                },
+                {
+                    "DataCollectionName": "Powerboard_Firmware_Version",
+                    "DataCollectionValue": "\"query_not_supported\""
+                },
+                {
+                    "DataCollectionName": "Powerboard_Firmware_Version",
+                    "DataCollectionValue": "\"query_not_supported\""
+                },
+                {
+                    "DataCollectionName": "Powerboard_Firmware_Version",
+                    "DataCollectionValue": "\"query_not_supported\""
+                },
+                {
+                    "DataCollectionName": "Software_Recipe_Version",
+                    "DataCollectionValue": "\"2.3.0.0@\""
+                },
+                {
+                    "DataCollectionName": "Software_Recipe_Version",
+                    "DataCollectionValue": "\"2.3.0.0@\""
+                },
+                {
+                    "DataCollectionName": "Software_Recipe_Version",
+                    "DataCollectionValue": "\"2.3.0.0@\""
+                },
+                {
+                    "DataCollectionName": "Software_Recipe_Version",
+                    "DataCollectionValue": "\"2.3.0.0@\""
+                },
+                {
+                    "DataCollectionName": "Software_Recipe_Version",
+                    "DataCollectionValue": "\"2.3.0.0@\""
+                },
+                {
+                    "DataCollectionName": "Software_Recipe_Version",
+                    "DataCollectionValue": "\"2.3.0.0@\""
+                },
+                {
+                    "DataCollectionName": "Connector_Firmware_Version",
+                    "DataCollectionValue": "\"2.0.0.1757\""
+                },
+                {
+                    "DataCollectionName": "Connector_Firmware_Version",
+                    "DataCollectionValue": "\"2.0.0.1757\""
+                },
+                {
+                    "DataCollectionName": "Connector_Firmware_Version",
+                    "DataCollectionValue": "\"2.0.0.1757\""
+                },
+                {
+                    "DataCollectionName": "Connector_Firmware_Version",
+                    "DataCollectionValue": "\"2.0.0.1757\""
+                },
+                {
+                    "DataCollectionName": "Connector_Firmware_Version",
+                    "DataCollectionValue": "\"2.0.0.1757\""
+                },
+                {
+                    "DataCollectionName": "Connector_Firmware_Version",
+                    "DataCollectionValue": "\"2.0.0.1757\""
+                },
+                {
+                    "DataCollectionName": "API_Version",
+                    "DataCollectionValue": "\"0.0.3\""
+                },
+                {
+                    "DataCollectionName": "API_Version",
+                    "DataCollectionValue": "\"0.0.3\""
+                },
+                {
+                    "DataCollectionName": "API_Version",
+                    "DataCollectionValue": "\"0.0.3\""
+                },
+                {
+                    "DataCollectionName": "API_Version",
+                    "DataCollectionValue": "\"0.0.3\""
+                },
+                {
+                    "DataCollectionName": "API_Version",
+                    "DataCollectionValue": "\"0.0.3\""
+                },
+                {
+                    "DataCollectionName": "API_Version",
+                    "DataCollectionValue": "\"0.0.3\""
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Box_Serial_Test",
+                    "DataCollectionValue": "I204304171515"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Box_Serial_Test",
+                    "DataCollectionValue": "I204304171515"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Box_Serial_Test",
+                    "DataCollectionValue": "I204304171515"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Box_Serial_Test",
+                    "DataCollectionValue": "I204304171515"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Init",
+                    "DataCollectionValue": "0.364"
+                },
+                {
+                    "DataCollectionName": "DUT_Meter_Value_Init",
+                    "DataCollectionValue": "0.153"
+                },
+                {
+                    "DataCollectionName": "TS23_Read_Reference_Meter",
+                    "DataCollectionValue": "0.3628345"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_Installer_Key",
+                    "DataCollectionValue": "vtv586Pk5pHPzr9uKBLhRtwK"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_Installer_Key",
+                    "DataCollectionValue": "vtv586Pk5pHPzr9uKBLhRtwK"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_User_QR",
+                    "DataCollectionValue": "P2tleT1CRGNhdnFsZ3MxbkJaRjB3Um5SRE9wUWMmaWQ9RU5PR0VOMjJTQi1KQi0wMDAxMDAwJnZlbmRvcj1CbGluaw=="
+                },
+                {
+                    "DataCollectionName": "Bluetooth_Installer_QR",
+                    "DataCollectionValue": "P2tleT12dHY1ODZQazVwSFB6cjl1S0JMaFJ0d0smaWQ9RU5PR0VOMjJTQi1KQi0wMDAxMDAwJnZlbmRvcj1CbGluaw=="
+                },
+                {
+                    "DataCollectionName": "Bluetooth_User_Key",
+                    "DataCollectionValue": "BDcavqlgs1nBZF0wRnRDOpQc"
+                },
+                {
+                    "DataCollectionName": "Bluetooth_User_Key",
+                    "DataCollectionValue": "BDcavqlgs1nBZF0wRnRDOpQc"
+                },
+                {
+                    "DataCollectionName": "Power_Board_Serial",
+                    "DataCollectionValue": "004F002C3139510533343330"
+                },
+                {
+                    "DataCollectionName": "Power_Board_Serial",
+                    "DataCollectionValue": "004F002C3139510533343330"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Box_Serial_Test",
+                    "DataCollectionValue": "I203704167499"
+                },
+                {
+                    "DataCollectionName": "DUT_Read_Charge_Box_Serial_Test",
+                    "DataCollectionValue": "I203704167499"
+                },
+                {
+                    "DataCollectionName": "IP_Checker",
+                    "DataCollectionValue": "192.168.1.200"
+                }
+            ],
+            "UPDs": null,
+            "InventoryID": null
+        },
+        {
+            "Level": 1,
+            "ItemId": 2,
+            "ParentItemId": 1,
+            "MaterialId": 26185,
+            "MaterialName": "KWENOV00331",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00331_2",
+            "AssembledDateTime": "2022-09-14T10:12:02.8570354+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1111041773001015"
+        },
+        {
+            "Level": 1,
+            "ItemId": 3,
+            "ParentItemId": 1,
+            "MaterialId": 26185,
+            "MaterialName": "KWENOV00331",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00331_3",
+            "AssembledDateTime": "2022-09-14T10:12:02.8600376+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1111041773001015"
+        },
+        {
+            "Level": 1,
+            "ItemId": 4,
+            "ParentItemId": 1,
+            "MaterialId": 26185,
+            "MaterialName": "KWENOV00331",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00331_4",
+            "AssembledDateTime": "2022-09-14T10:12:02.8621612+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1111041773001015"
+        },
+        {
+            "Level": 1,
+            "ItemId": 5,
+            "ParentItemId": 1,
+            "MaterialId": 26199,
+            "MaterialName": "KWENOV00344",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00344_1",
+            "AssembledDateTime": "2022-09-14T10:12:02.7800573+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1108911603001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 6,
+            "ParentItemId": 1,
+            "MaterialId": 26199,
+            "MaterialName": "KWENOV00344",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00344_2",
+            "AssembledDateTime": "2022-09-14T10:12:02.7830688+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1108911603001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 7,
+            "ParentItemId": 1,
+            "MaterialId": 26199,
+            "MaterialName": "KWENOV00344",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00344_3",
+            "AssembledDateTime": "2022-09-14T10:12:02.7850509+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1108911603001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 8,
+            "ParentItemId": 1,
+            "MaterialId": 26199,
+            "MaterialName": "KWENOV00344",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00344_4",
+            "AssembledDateTime": "2022-09-14T10:12:02.7880665+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1108911603001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 9,
+            "ParentItemId": 1,
+            "MaterialId": 26200,
+            "MaterialName": "KWENOV00373",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00373",
+            "AssembledDateTime": "2022-09-14T10:12:02.8070472+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1108873669001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 10,
+            "ParentItemId": 1,
+            "MaterialId": 26226,
+            "MaterialName": "KWENOV00346",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00346",
+            "AssembledDateTime": "2022-09-14T10:12:02.7930466+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "8972248780001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 11,
+            "ParentItemId": 1,
+            "MaterialId": 26230,
+            "MaterialName": "KWENOV00347",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00347",
+            "AssembledDateTime": "2022-09-14T10:12:02.7950529+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1110334211001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 12,
+            "ParentItemId": 1,
+            "MaterialId": 26246,
+            "MaterialName": "KWENOV00421",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00421",
+            "AssembledDateTime": "2022-09-14T10:12:02.8181973+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1112893009001002"
+        },
+        {
+            "Level": 1,
+            "ItemId": 13,
+            "ParentItemId": 1,
+            "MaterialId": 26266,
+            "MaterialName": "KWENOV00396",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00396",
+            "AssembledDateTime": "2022-09-14T10:12:02.816038+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "8973085652001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 14,
+            "ParentItemId": 1,
+            "MaterialId": 26269,
+            "MaterialName": "KWENOV00388",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00388_1",
+            "AssembledDateTime": "2022-09-14T10:12:02.8090493+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109973806001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 15,
+            "ParentItemId": 1,
+            "MaterialId": 26269,
+            "MaterialName": "KWENOV00388",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00388_2",
+            "AssembledDateTime": "2022-09-14T10:12:02.8110504+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109973806001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 16,
+            "ParentItemId": 1,
+            "MaterialId": 26275,
+            "MaterialName": "KWENOV00342",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00342",
+            "AssembledDateTime": "2022-09-14T10:12:02.8810339+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1112893438002002"
+        },
+        {
+            "Level": 1,
+            "ItemId": 17,
+            "ParentItemId": 1,
+            "MaterialId": 26277,
+            "MaterialName": "KWENOV00336",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00336",
+            "AssembledDateTime": "2022-09-14T10:12:02.8640399+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "8972251872001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 18,
+            "ParentItemId": 1,
+            "MaterialId": 26281,
+            "MaterialName": "KWENOV00345",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00345",
+            "AssembledDateTime": "2022-09-14T10:12:02.7901929+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "8973897751001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 19,
+            "ParentItemId": 1,
+            "MaterialId": 26283,
+            "MaterialName": "KWENOV00343",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00343",
+            "AssembledDateTime": "2022-09-14T10:12:02.7780487+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1112893675001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 20,
+            "ParentItemId": 1,
+            "MaterialId": 26285,
+            "MaterialName": "KWENOV00339",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00339_1",
+            "AssembledDateTime": "2022-09-14T10:12:02.8670398+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1108872759001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 21,
+            "ParentItemId": 1,
+            "MaterialId": 26285,
+            "MaterialName": "KWENOV00339",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00339_2",
+            "AssembledDateTime": "2022-09-14T10:12:02.8690326+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1108872759001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 22,
+            "ParentItemId": 1,
+            "MaterialId": 26285,
+            "MaterialName": "KWENOV00339",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00339_3",
+            "AssembledDateTime": "2022-09-14T10:12:02.872031+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1108872759001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 23,
+            "ParentItemId": 1,
+            "MaterialId": 26290,
+            "MaterialName": "KWENOV00329",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00329_1",
+            "AssembledDateTime": "2022-09-14T10:12:02.8302289+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109254337001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 24,
+            "ParentItemId": 1,
+            "MaterialId": 26290,
+            "MaterialName": "KWENOV00329",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00329_2",
+            "AssembledDateTime": "2022-09-14T10:12:02.8330645+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109254337001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 25,
+            "ParentItemId": 1,
+            "MaterialId": 26290,
+            "MaterialName": "KWENOV00329",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00329_3",
+            "AssembledDateTime": "2022-09-14T10:12:02.8350442+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109254337001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 26,
+            "ParentItemId": 1,
+            "MaterialId": 26290,
+            "MaterialName": "KWENOV00329",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00329_4",
+            "AssembledDateTime": "2022-09-14T10:12:02.8382111+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109254337001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 27,
+            "ParentItemId": 1,
+            "MaterialId": 26290,
+            "MaterialName": "KWENOV00329",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00329_5",
+            "AssembledDateTime": "2022-09-14T10:12:02.8400448+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109254337001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 28,
+            "ParentItemId": 1,
+            "MaterialId": 26290,
+            "MaterialName": "KWENOV00329",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00329_6",
+            "AssembledDateTime": "2022-09-14T10:12:02.8430362+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109254337001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 29,
+            "ParentItemId": 1,
+            "MaterialId": 26290,
+            "MaterialName": "KWENOV00329",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00329_7",
+            "AssembledDateTime": "2022-09-14T10:12:02.8510357+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1109254337001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 30,
+            "ParentItemId": 1,
+            "MaterialId": 26297,
+            "MaterialName": "KWENOV00349",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00349_1",
+            "AssembledDateTime": "2022-09-14T10:12:02.7970643+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "8972246602001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 31,
+            "ParentItemId": 1,
+            "MaterialId": 26297,
+            "MaterialName": "KWENOV00349",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00349_2",
+            "AssembledDateTime": "2022-09-14T10:12:02.8000418+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "8972246602001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 32,
+            "ParentItemId": 1,
+            "MaterialId": 26300,
+            "MaterialName": "KWENOV00353",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00353",
+            "AssembledDateTime": "2022-09-14T10:12:02.8021649+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1110688323002003"
+        },
+        {
+            "Level": 1,
+            "ItemId": 33,
+            "ParentItemId": 1,
+            "MaterialId": 26303,
+            "MaterialName": "KWENOV00340",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00340_1",
+            "AssembledDateTime": "2022-09-14T10:12:02.8741359+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1110597114001005"
+        },
+        {
+            "Level": 1,
+            "ItemId": 34,
+            "ParentItemId": 1,
+            "MaterialId": 26303,
+            "MaterialName": "KWENOV00340",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00340_2",
+            "AssembledDateTime": "2022-09-14T10:12:02.8760384+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1110597114001005"
+        },
+        {
+            "Level": 1,
+            "ItemId": 35,
+            "ParentItemId": 1,
+            "MaterialId": 26303,
+            "MaterialName": "KWENOV00340",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00340_3",
+            "AssembledDateTime": "2022-09-14T10:12:02.8790336+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1110597114001005"
+        },
+        {
+            "Level": 1,
+            "ItemId": 36,
+            "ParentItemId": 1,
+            "MaterialId": 26305,
+            "MaterialName": "KWENOV00330",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00330",
+            "AssembledDateTime": "2022-09-14T10:12:02.8530485+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1112893526001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 37,
+            "ParentItemId": 1,
+            "MaterialId": 26818,
+            "MaterialName": "KWENOV00457",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00457_1",
+            "AssembledDateTime": "2022-09-14T10:12:02.8210404+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1110219401001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 38,
+            "ParentItemId": 1,
+            "MaterialId": 26818,
+            "MaterialName": "KWENOV00457",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00457_2",
+            "AssembledDateTime": "2022-09-14T10:12:02.8230508+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1110219401001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 39,
+            "ParentItemId": 1,
+            "MaterialId": 26818,
+            "MaterialName": "KWENOV00457",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00457_3",
+            "AssembledDateTime": "2022-09-14T10:12:02.8250441+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1110219401001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 40,
+            "ParentItemId": 1,
+            "MaterialId": 27224,
+            "MaterialName": "KWENOV00327-01",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "WENOV00327-01",
+            "AssembledDateTime": "2022-09-14T10:12:02.8130488+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1112891410002017"
+        },
+        {
+            "Level": 1,
+            "ItemId": 41,
+            "ParentItemId": 1,
+            "MaterialId": 27225,
+            "MaterialName": "KWENOV00355-01",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "WENOV00355-01",
+            "AssembledDateTime": "2022-09-14T10:12:02.8040562+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1112743355002004"
+        },
+        {
+            "Level": 1,
+            "ItemId": 42,
+            "ParentItemId": 1,
+            "MaterialId": 27253,
+            "MaterialName": "KWENOV00478",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00478",
+            "AssembledDateTime": "2022-09-14T10:12:02.8280681+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1112334981002005"
+        },
+        {
+            "Level": 1,
+            "ItemId": 43,
+            "ParentItemId": 1,
+            "MaterialId": 27294,
+            "MaterialName": "KWENOV00326-01",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "WENOV00326-01",
+            "AssembledDateTime": "2022-09-14T10:12:02.775054+02:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1112893719001001"
+        },
+        {
+            "Level": 1,
+            "ItemId": 44,
+            "ParentItemId": 1,
+            "MaterialId": 26185,
+            "MaterialName": "KWENOV00331",
+            "PinCount": 0,
+            "PhoenixMaterialType": "Unserialized Material",
+            "SerializedMaterialId": null,
+            "WipId": null,
+            "SerialNumber": null,
+            "ManufacturerPartNumber": null,
+            "Quantity": 1.000,
+            "CRD": "KWENOV00331_1",
+            "AssembledDateTime": "2022-11-03T13:25:56.0243967+01:00",
+            "AssembledLocation": "ASSEMBLY",
+            "ReturnCount": 0,
+            "DataCollections": null,
+            "UPDs": null,
+            "InventoryID": "1111041773001012"
+        }
+    ]
+}
